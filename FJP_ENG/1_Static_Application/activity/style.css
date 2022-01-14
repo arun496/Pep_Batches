@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+}
+
+/* Bring your html tags into visibility => Background color */
+.topbar-cont {
+    /* background-color: lightblue; */
+    display: flex;
+    /* Want space in-between */
+    justify-content: space-between;
+}
+.title-cont {
+    /* background-color: lightcoral; */
+}
+.nav-cont {
+    /* background-color: lightsalmon; */
+    display: flex;
+    width: 10rem;
+    justify-content: space-between;
+}
+.navigation-cont {
+    /* background-color: lightgreen; */
+}
+
+.image-cont {
+    width: 98vw;
+    height: 80vh;
+}
+
+.image-content {
+    width: 100%;
+    height: 100%;
+}
