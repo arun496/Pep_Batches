@@ -97,7 +97,7 @@ xdfg
 
 // console.log(arr1.length);
 
-// let arr = [1, 2, 3, 4, 5, 6];
+let arr = [1, 2, 3, 4, 5, 6];
 // Push, pop, shift, unshift, slice, splice
 // arr.push(4); // Add @ end of arr
 // arr.push(5);
@@ -110,12 +110,14 @@ xdfg
 // arr.unshift(100); // Add from front in arr
 // arr.unshift(200);
 
-// let newArr = arr.slice(4); // arr.slice(included, excluded) => copy
+// arr.slice(included, excluded) => copy
+// arr.slice(start_index, end_index) => copy
+// let newArr = arr.slice(4); 
 // newArr[0] = -1;
 
-// let newArr = arr.splice(1, 2); // arr.splice(start_index, length) => copy & delete
+let newArr = arr.splice(1, 3); // arr.splice(start_index, length) => copy & delete
 
-// console.log(arr, newArr);
+console.log(arr, newArr);
 
 /*********************************************************/
 // Function reference & function call
@@ -140,6 +142,7 @@ let obj = {
 // let myObj = obj["my_obj"];
 // let cmpny = myObj.company;
 // console.log(obj.my_obj.company);
+
 // Read => Access
 // let myName = obj.name;
 // let myFun = obj.fun;
@@ -148,6 +151,7 @@ let obj = {
 // let myName = obj[str];
 // console.log(myName);
 // console.log(myFun);
+
 // Update
 // obj.college = "IIT"; // Update new
 // obj.age = 20; // Override existing obj key
@@ -155,3 +159,8 @@ let obj = {
 // Delete
 // delete obj["name"];
 // console.log(obj);
+
+// for-in => To iterate on object
+// for (let key in obj) {
+//     console.log(obj[key]);
+// }
