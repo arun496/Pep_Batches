@@ -14,17 +14,18 @@ function checkFileOrFolder(path) {
 function viewHelperFlat(src) {
     // Is it a file or folder
     let isFile = checkFileOrFolder(src);
-    if (isFile) {  // Base case
+    if (isFile == true) {  // Base case
         console.log(src, "*");
     } else { // Folder => Folder1, Files
-        let childrens = fs.readdirSync(src); //Immediate Level childrens
+        let childrens = fs.readdirSync(src); // Read content Immediate Level childrens
         
         for (let i = 0;i < childrens.length;i++) {
-            let child = childrens[i];
+            let child = childrens[i]; // Not a complete path, just file or folder name
             let childPath = path.join(src, child);
             console.log(childPath);
 
-            // Faith
+            // Faith ??
+            
         }
     }
 }
