@@ -5,7 +5,8 @@ let utility = {
     media: ['mp4','mkv','mp3'],
     archives: ['zip','7z','rar','tar','gz','ar','iso','xz'],
     documents: ['docx','doc','pdf','xlsx','xls','odt','ods','odp','odg','odf','txt','ps','tex'],
-    app: ['exe','dmg','pkg','deb']
+    app: ['exe','dmg','pkg','deb'],
+    images: ['png', 'jpg', 'jpeg'],
 }
 
 function organizeFn(src) {
@@ -14,16 +15,16 @@ function organizeFn(src) {
         src = process.cwd();  // Path of working directory
     } 
 
-    let dest = checkDest(src);  // dest Path created & checked existence
+    let dest = createFolder(src, "organizedFolder");  // dest Path created & checked existence
     organizeHelper(src, dest);
 }
 
-function checkDest(src) {
-    let dest = path.join(src, "organizedFolder"); // src/organizedFolder
-    if (fs.existsSync(dest) == false) {
-        fs.mkdirSync(dest);  // Create a directory
+function createFolder(src, parameter) {
+    let folderPath = path.join(src, parameter); // src/organizedFolder
+    if (fs.existsSync(folderPath) == false) {
+        fs.mkdirSync(folderPath);  // Create a directory
     }
-    return dest;
+    return folderPath;
 }
 
 function getCategory(src) {
@@ -43,14 +44,22 @@ function getCategory(src) {
     return "others";  // If path doesn't fall under any category
 }
 
+function copyFileAndOrganize(src, dest) {
+    dest = path.join(dest, path.basename(src));
+    fs.copyFileSync(src, dest); // File is not yet created, copyFileSync will only content from srcfile to the destfile
+}
+
 function organizeHelper(src, dest) {
     // Logic
     let isFile = checkFileOrFolder(src);
     if (isFile == true) { 
         // utility
         // idenitfy which category => logic
-        let category = getCategory(src);
-        console.log(path.basename(src), "=>", category);
+        let category = getCategory(src);  // media => mp3, mp4
+        let categoryPath = createFolder(dest, category);  // To create Category folder in dest path
+        copyFileAndOrganize(src, categoryPath);
+
+        // console.log(path.basename(src), "=>", category);
     } else { 
         let childrens = fs.readdirSync(src);
         
@@ -61,7 +70,6 @@ function organizeHelper(src, dest) {
             organizeHelper(childPath, dest);
         }
     }
-
 }
 
 function checkFileOrFolder(path) {
