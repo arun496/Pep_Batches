@@ -9,12 +9,12 @@ It is used to display or make a copy content of one or more files in ~~the~~ ter
 
 4- wcat -n filepath => give numbering to all the lines  ✔
 5- wcat -b filepath => give numbering to non-empty lines  ✔
-6- wcat filepath > filename2path => put all the content of filename into filename2 by overriding and also creates ~~filename2~~ if it doesn't exist. ✔
-7- wcat filename2path >> filename2path => append all the content of filename into ~~filename2~~✔
-8- node wcat -s filename > filename2 =>get the file content of filename remove large spaces and save the output in filename2 ✔
+6- wcat file1path > file2path => put all the content of filename1 into filename2 by overriding and also creates ~~filename2~~ if it doesn't exist. ✔
+7- wcat file1path >> file2path => append all the content of filename1 into ~~filename2~~✔
+8- wcat -s filename > filename2 => get the file content of filename remove large spaces and save the output in filename2 ✔
 We can mix and match the options.
 
 ## Edge cases:
 
-1- If file entered is not found then it gives file does not exist error.
+1- If file entered is not found, then it gives "file does not exist error".
 2- -n and -b are 2 options available together then command should give you an ~~error~~
